@@ -1,34 +1,34 @@
 <?php
 
 /**
- * li3_flash plugin for Lithium. Copied and renamed from li3_flash_message.
+ * flash plugin for Lithium. Copied and renamed from li3_flash_message.
  *
  * @copyright     Copyright 2010, Michael Hüneburg
  * @license       http://opensource.org/licenses/bsd-license.php The BSD License
  */
-namespace li3_flash\extensions\helper;
+namespace flash\extensions\helper;
 
 /**
  * Helper to output flash messages.
  *
- * @see li3_flash_message\extensions\action\FlashMessage
+ * @see flash_message\extensions\action\FlashMessage
  */
 class Flash extends \lithium\template\Helper {
 
 	/**
 	 * Holds the instance of the flash message storage class
 	 *
-	 * @see \li3_flash_message\extensions\storage\FlashMessage
+	 * @see \flash_message\extensions\storage\FlashMessage
 	 */
 	protected $_classes = array(
-		'storage' => '\li3_flash\extensions\storage\Flash'
+		'storage' => '\flash\extensions\storage\Flash'
 	);
 
 	/**
 	 * Outputs a flash message using a template. The message will be cleared afterwards.
 	 * With defaults settings it looks for the template
 	 * `app/views/elements/flash_message.html.php`. If it doesn't exist, the  plugin's view
-	 * at `li3_flash_message/views/elements/flash_message.html.php` will be used. Use this
+	 * at `flash_message/views/elements/flash_message.html.php` will be used. Use this
 	 * file as a starting point for your own flash message element. In order to use a
 	 * different template, adjust `$options['type']` and `$options['template']` to your needs.
 	 *
@@ -67,7 +67,7 @@ class Flash extends \lithium\template\Helper {
 
 				$output = $view->render($type, $data, $options['options']);
             } catch (\Exception $e) {
-				$output = $view->render($type, $data, array('library' => 'li3_flash'));
+				$output = $view->render($type, $data, array('library' => 'flash'));
 			}
 		}
 		return $output;
