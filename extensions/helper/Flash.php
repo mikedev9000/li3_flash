@@ -59,16 +59,16 @@ class Flash extends \lithium\template\Helper {
 			$data = $options['data'] + array('message' => $flash['message']) + $flash['atts'];
 			$storage::clear($key);
 
-			try {
-                $request = $this->_context->_config['request'];
-                if (!empty($request->params['library'])) {
-                    $options['options'] += array('library' => $request->params['library']);
-                }
+                    try {
+                        $request = $this->_context->_config['request'];
+                        if (!empty($request->params['library'])) {
+                            $options['options'] += array('library' => $request->params['library']);
+                        }
 
-				$output = $view->render($type, $data, $options['options']);
-            } catch (\Exception $e) {
+                        $output = $view->render($type, $data, $options['options']);
+                    } catch (\Exception $e) {
 				$output = $view->render($type, $data, array('library' => 'flash'));
-			}
+                    }
 		}
 		return $output;
 	}
